@@ -232,11 +232,11 @@ ggplot(current %>% group_by(`Status`, `Loan Originator`) %>% summarise(Outstandi
 
 Pur avendo un capitale investito estremamente ridotto, tutti i prestiti relativi a *Credissimo*, *Creditstar* e *Evergreen Finance* sono in grave ritardo. 
 
-La situazione di *CashCredit*, *Watu Credit* e *IDF Eurasia*, *Finclusion* e *Kviku* deve essere monitorata in modo approfondito in quanto presentano consistenti quote di ritardo. 
+La situazione di *CashCredit*, *Watu Credit*, *IDF Eurasia*, *Finclusion* e *Kviku* deve essere monitorata in modo approfondito in quanto presentano consistenti quote di ritardo. 
 
 ## Pending Payments
 
-Tutti gli investimenti con *Buyback guarantee* sono tutelati: se subiscono un ritardo superiore ai 60 giorni vengono riacquistati dal rispettivo Loan Originator al valore attuale. In questo modo parte del rischio di insolvenza da parte del debitore viene mitigato. La strategia di investimento del portafoglio opera solamente su prestiti garantiti. 
+Tutti gli investimenti con *Buyback guarantee* sono tutelati: se subiscono un ritardo superiore ai 60 giorni vengono riacquistati dal rispettivo Loan Originator al valore attuale. In questo modo parte del rischio di insolvenza da parte del debitore viene mitigato. La strategia di investimento del portafoglio opera *solamente su prestiti garantiti*. 
 
 Ciò non toglie che periodi di grave crisi potrebbero portare ad un incremento sostanziale dei prestiti in default, incidendo pesantemente sulla liquidità dei loan originator, in particolare quelli a bassa capitalizzazione e asset liquidi ridotti. Un loan originator in crisi di liquidità potrebbe riscontrare ritardi nei pagamenti a Mintos (*Pending Payments*) o persino andare in *default*. 
 
@@ -400,7 +400,7 @@ profit = statement %>%
   mutate(Category = "profit")
 
 data = bind_rows(profit, deposit)
-data
+datatable(data)
 
 ggplot(data) + 
   geom_area(mapping=aes(x = Date, y = cumsum(Turnover), fill = Category)) +
@@ -484,7 +484,7 @@ data = all %>%
 ggplot(data, aes(x = `Invested`, y = `Average NAR`)) +
   geom_point(aes(size = `Profit`, col = rainbow(nrow(data))), alpha = 0.5, show.legend = FALSE) +
   scale_size(range = c(.1, 30)) +
-  ggrepel::geom_text_repel(aes(label=`Loan Originator`)) +
+  geom_text_repel(aes(label=`Loan Originator`)) +
   xlab("Invested amount (EUR)")
 ```
 
