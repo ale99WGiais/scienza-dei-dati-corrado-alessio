@@ -1,0 +1,68 @@
+---
+title: "Corrado Alessio - Mintos investment analysis"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Peer to peer lending
+
+*Mintos* è una piattoforma online di *peer-to-peer lending*.
+
+In un prestito tradizionale, il cliente si rivolge ad una banca o società finanziaria (business) per ottenere da essa un prestito, che viene ripagato ad interesse in una o più rate periodiche. 
+
+Nel p2p lending invece sia i richiedenti che i prestatori sono persone fisiche (peer).
+
+## Meccanismo
+
+- Il richiedente si rivolge a particolari società finanziarie, denominate *loan originators*, ottenendo un prestito agevolato.
+- Il loan originator lista il prestito, assieme a tutti i dettagli, sul *marketplace* (**Mintos**). 
+- Gli investitori acquistano (una parte di) diritti sul prestito, in modo da ottenere una rendita passiva agganciata all'andamento di esso. 
+
+In particolare:
+
+- Il richiedente paga le rate, comprensive di interessi, presso il loan originator. 
+- Il loan originator periodicamente invia a Mintos i pagamenti dovuti.
+- Mintos accredita all'investitore *principal* e *interest*.
+
+## Mercati
+
+- **Mercato primario**: dove i loan originators vendono i prestiti agli investitori.
+- **Mercato secondario**: dove gli investitori possono vendere i prestiti ad altri investitori, eventualmente applicando un markup/discount.
+
+## Vantaggi
+
+Richiedenti:
+
+- Prestiti a condizioni vantaggiose
+
+Loan originators:
+
+- Commissioni (trattengono una parte di interesse)
+- Riduzione del rischio di default da parte dei clienti
+- Raccolta capitale a basso costo (rispetto ad altri metodi di finanziamento)
+
+Investitori: 
+
+- Tutto è gestito dai loan originators. 
+- Investimenti a medio rischio con elevato tasso di interesse.
+
+
+## Scopo del progetto
+
+Esaminare la situazione attuale e l'andamento passato del mio investimento sulla piattaforma *Mintos*.
+
+Il periodo in analisi è gennaio-giugno 2020. 
+
+## Cosa ho usato
+
+- Import: readxl, tibble, tidyr
+- Elaborazione: dplyr, stringr
+- Visualizzazione: ggplot, ggrepel
+- Animazione: DT (datatable)
+- Big data: RSQlite, dbplyr
+
+I dati sono stati direttamente scaricati dal mio account nella piattaforma. 
+
